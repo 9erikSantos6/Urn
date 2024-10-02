@@ -1,0 +1,1 @@
+export { Voter } from './voter';

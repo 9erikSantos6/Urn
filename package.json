@@ -1,0 +1,18 @@
+{
+  "name": "urn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:9erikSantos6/Urn.git",
+  "author": "9erikSantos6 <9xerikx6@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --config ./src/jest.config.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}
