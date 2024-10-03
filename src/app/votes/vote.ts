@@ -1,5 +1,3 @@
-// import { Candidate } from '@app/candidates';
-// import { Voter } from '@app/voters';
 import { Candidate } from "../candidates";
 import { Voter } from "../voters";
 
