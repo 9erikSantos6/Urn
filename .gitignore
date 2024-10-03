@@ -5,6 +5,8 @@
 
 # Project especific files
 build/
+dist/
+src/coverage/
 
 # User-specific files
 *.rsuser
