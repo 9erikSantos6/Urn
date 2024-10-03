@@ -3,7 +3,7 @@ export class Voter {
     private cpf: string;
 
     constructor(name: string, cpf: string) {
-        this.name = name.toLowerCase();
+        this.name = name;
         this.cpf = this.validateCPF(cpf);
     }
 
@@ -16,7 +16,7 @@ export class Voter {
         if (cpf.length === 11 && !isNaN(cpf as any) && !isNaN(parseFloat(cpf))) {
             return this.toCpfFormat(cpf);
         }
-        throw new Error('Invalid CPF');
+        throw new Error('Invalid CPF!');
     }
 
     public getName(): string {
@@ -32,6 +32,6 @@ export class Voter {
     }
 
     public setCpf(cpf: string): void {
-        this.cpf = cpf;
+        this.cpf = this.validateCPF(cpf);
     }
 }
