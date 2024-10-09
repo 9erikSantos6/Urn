@@ -1,6 +1,7 @@
 import { Candidate } from "../app/candidates";
 import { Voter } from "../app/voters";
 import { Urn } from "../app/urn";
+import { VotesResults } from "shared/types/votation";
 
 describe('Urn Class Tests', (): void => {
     let urn: Urn;
@@ -73,13 +74,17 @@ describe('Urn Class Tests', (): void => {
             const candidate1: Candidate = new Candidate('Eneas', '55');
             const candidate2: Candidate = new Candidate('THC', '22');
             const voter = new Voter('Jhon', '35417396725');
-            
+
             urn.addCandidate(candidate1);
             urn.addCandidate(candidate2);
-            urn.registerVote(voter, candidate1);
-            
-            expect(urn.getVoteResults().get(candidate1)).toBe(1);
-            expect(urn.getVoteResults().get(candidate2)).toBe(0);
+            urn.registerVote(voter, '55');
+
+            const votationResults: VotesResults = urn.getVotationResults();
+
+            expect(votationResults.validVotes.get(candidate1)).toBe(1);
+            expect(votationResults.validVotes.get(candidate2)).toBe(0);
+            expect(votationResults.blankVotes).toBe(0);
+            expect(votationResults.nullVotes).toBe(0);
         });
 
         it('Should deny duplicate votes by the same voter', (): void => {
@@ -89,11 +94,50 @@ describe('Urn Class Tests', (): void => {
             
             urn.addCandidate(candidate1);
             urn.addCandidate(candidate2);
-            urn.registerVote(voter, candidate1);
+            urn.registerVote(voter, '55');
             
-            expect(() => urn.registerVote(voter, candidate1)).toThrow('Vote denied!');
-            expect(urn.getVoteResults().get(candidate1)).toBe(1);
-            expect(urn.getVoteResults().get(candidate2)).toBe(0);
+            expect(() => urn.registerVote(voter, '55')).toThrow('Vote denied!');
+
+            const votationResults: VotesResults = urn.getVotationResults();
+
+            expect(votationResults.validVotes.get(candidate1)).toBe(1);
+            expect(votationResults.validVotes.get(candidate2)).toBe(0);
+            expect(votationResults.blankVotes).toBe(0);
+            expect(votationResults.nullVotes).toBe(0);
+        });
+
+        it('Should register a blank vote', (): void => {
+            const candidate1: Candidate = new Candidate('Eneas', '55');
+            const candidate2: Candidate = new Candidate('THC', '22');
+            const voter = new Voter('Jhon', '35417396725');
+
+            urn.addCandidate(candidate1);
+            urn.addCandidate(candidate2);
+            urn.registerVote(voter, 'blank');
+
+            const votationResults: VotesResults = urn.getVotationResults();
+
+            expect(votationResults.validVotes.get(candidate1)).toBe(0);
+            expect(votationResults.validVotes.get(candidate2)).toBe(0);
+            expect(votationResults.blankVotes).toBe(1);
+            expect(votationResults.nullVotes).toBe(0);
+        });
+
+        it('Should register a null vote', (): void => {
+            const candidate1: Candidate = new Candidate('Eneas', '55');
+            const candidate2: Candidate = new Candidate('THC', '22');
+            const voter = new Voter('Jhon', '35417396725');
+
+            urn.addCandidate(candidate1);
+            urn.addCandidate(candidate2);
+            urn.registerVote(voter, '00');
+
+            const votationResults: VotesResults = urn.getVotationResults();
+
+            expect(votationResults.validVotes.get(candidate1)).toBe(0);
+            expect(votationResults.validVotes.get(candidate2)).toBe(0);
+            expect(votationResults.blankVotes).toBe(0);
+            expect(votationResults.nullVotes).toBe(1);
         });
     });
 });
