@@ -1,4 +1,4 @@
-import { Candidate } from '../../../app/candidates';
+import { Candidate } from '../../app/candidates';
 
 export type VotesResults = {
     validVotes: Map<Candidate, number>;
@@ -6,4 +6,4 @@ export type VotesResults = {
     nullVotes: number;
 }
 
-export type Vote = string | 'blank';
+export type VotationSatus = 'occurring' | 'suspended';
