@@ -2,27 +2,27 @@ import { Candidate } from "../candidates";
 import { Voter } from "../voters";
 
 export class Vote {
-    private candidate: Candidate;
-    private voter: Voter;
+  private candidate: Candidate;
+  private voter: Voter;
 
-    constructor(candidate: Candidate, voter: Voter) {
-        this.candidate = candidate;
-        this.voter = voter;
-    }
+  constructor(candidate: Candidate, voter: Voter) {
+    this.candidate = candidate;
+    this.voter = voter;
+  }
 
-    public getCandidate(): Candidate {
-        return this.candidate;
-    }
+  public getCandidate(): Candidate {
+    return this.candidate;
+  }
 
-    public setCandidate(candidate: Candidate): void {
-        this.candidate = candidate;
-    }
+  public setCandidate(candidate: Candidate): void {
+    this.candidate = candidate;
+  }
 
-    public getVoter(): Voter {
-        return this.voter;
-    }
+  public getVoter(): Voter {
+    return this.voter;
+  }
 
-    public setVoter(voter: Voter): void {
-        this.voter = voter;
-    }
+  public setVoter(voter: Voter): void {
+    this.voter = voter;
+  }
 }
