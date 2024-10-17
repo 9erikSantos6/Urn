@@ -1,5 +1,5 @@
-import { Candidate } from "../candidates";
-import { Voter } from "../voters";
+import { Candidate } from '../candidates';
+import { Voter } from '../voters';
 
 export class Vote {
   private candidate: Candidate;

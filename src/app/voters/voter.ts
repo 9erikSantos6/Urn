@@ -15,11 +15,11 @@ export class Voter {
   }
 
   private validateCPF(value: string): string {
-    const cpf: string = value.replace(/\D/g, "");
+    const cpf: string = value.replace(/\D/g, '');
     if (cpf.length === 11 && !isNaN(cpf as any) && !isNaN(parseFloat(cpf))) {
       return this.toCpfFormat(cpf);
     }
-    throw new Error("Invalid CPF!");
+    throw new Error('Invalid CPF!');
   }
 
   public getName(): string {

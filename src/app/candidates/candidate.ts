@@ -8,11 +8,11 @@ export class Candidate {
   }
 
   private validateNumber(number: string): string {
-    const numericString = number.replace(/\D/g, "");
+    const numericString = number.replace(/\D/g, '');
     if (numericString) {
       return numericString;
     }
-    throw new Error("Invalid number!");
+    throw new Error('Invalid number!');
   }
 
   public getName(): string {

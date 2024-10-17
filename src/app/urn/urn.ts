@@ -1,6 +1,6 @@
-import { Candidate } from "../candidates";
-import { Voter } from "../../app/voters";
-import { VotationSatus, VotesResults } from "../../shared/types/votation";
+import { Candidate } from '../candidates';
+import { Voter } from '../../app/voters';
+import { VotationSatus, VotesResults } from '../../shared/types/votation';
 
 export class Urn {
   private votingSatus: VotationSatus = 'suspended';
@@ -14,7 +14,9 @@ export class Urn {
 
   private confirmVotingStatusIn(votationSatus: VotationSatus): void {
     if (this.votingSatus === votationSatus) return;
-    throw new Error(`Operation denied, voting status is: ${this.votingSatus.toUpperCase()}`);
+    throw new Error(
+      `Operation denied, voting status is: ${this.votingSatus.toUpperCase()}`
+    );
   }
 
   public addCandidate(candidate: Candidate): void {
@@ -25,7 +27,7 @@ export class Urn {
       this.votes.validVotes.set(candidate, 0);
       return;
     }
-    throw new Error("Candidate already exists!");
+    throw new Error('Candidate already exists!');
   }
 
   public delCandidate(number: string): void {
@@ -36,7 +38,7 @@ export class Urn {
       this.votes.validVotes.delete(candidate);
       return;
     }
-    throw new Error("This candidate does not exist!");
+    throw new Error('This candidate does not exist!');
   }
 
   public searchByNumber(number: string): Candidate | undefined {
@@ -50,13 +52,13 @@ export class Urn {
   }
 
   public registerVote(voter: Voter, vote: string): void {
-    this.confirmVotingStatusIn("occurring");
+    this.confirmVotingStatusIn('occurring');
     const voterCPF = voter.getCpf();
 
     if (this.CPFrecords.has(voterCPF)) {
-      throw new Error("Vote denied!");
+      throw new Error('Vote denied!');
     }
-    if (vote.toLocaleLowerCase() == "blank") {
+    if (vote.toLocaleLowerCase() == 'blank') {
       this.CPFrecords.add(voterCPF);
       this.votes.blankVotes += 1;
       return;
