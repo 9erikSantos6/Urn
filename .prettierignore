@@ -1,9 +1,2 @@
-build
-pnpm-lock.yaml
-LICENSE.md
-tsconfig.json
-tsconfig.*.json
 node_modules
-package.json
-yarn.lock
-README.md
+src/app/coverage/*
