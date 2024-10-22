@@ -1,3 +1,4 @@
+import { it, describe, expect} from 'vitest';
 import { Voter } from '../app/voters';
 
 describe('Voter Class Tests', (): void => {
