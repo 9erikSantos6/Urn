@@ -10,6 +10,7 @@
     "lint": "eslint --fix .",
     "format-check": "prettier --check .",
     "format": "prettier --write .",
+    "wached-test": "vitest ./src",
     "test": "vitest --run ./src",
     "coverage": "vitest run --coverage ./src",
     "prepare": "husky"
