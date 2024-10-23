@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "compile": "tsc",
-    "lint": "eslint --fix .",
-    "format-check": "prettier --check .",
-    "format": "prettier --write .",
+    "lint": "eslint --fix ./src",
+    "format-check": "prettier --check ./src",
+    "format": "prettier --write ./src",
     "wached-test": "vitest ./src",
     "test": "vitest --run ./src",
     "coverage": "vitest run --coverage ./src",
