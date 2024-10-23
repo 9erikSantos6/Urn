@@ -9,4 +9,12 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   eslintConfigPrettier,
+  { 
+    ignores: [
+      '**/*.js',
+      'node_modules',
+      '**/*coverage',
+      'build'
+    ]
+  }
 ];
