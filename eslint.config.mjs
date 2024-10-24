@@ -8,5 +8,11 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  { ignores: [
+      '*.js',
+      'node_modules',
+      'src/app/coverage/*',
+      'build'
+    ]},
   eslintConfigPrettier,
 ];
