@@ -1,5 +1,5 @@
 import { it, expect, describe } from 'vitest';
-import { Candidate } from '../app/candidates';
+import { Candidate } from '../../app/candidates';
 
 describe('Candidate Class Tests', (): void => {
   let candidate: Candidate;

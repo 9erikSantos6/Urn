@@ -11,8 +11,8 @@
     "format-check": "prettier --check ./src",
     "format": "prettier --write ./src",
     "wached-test": "vitest ./src",
-    "test": "vitest --run ./src",
-    "coverage": "vitest run --coverage ./src",
+    "test": "vitest --run ./src/tests",
+    "coverage": "vitest run --coverage ./src/tests",
     "prepare": "husky"
   },
   "devDependencies": {
