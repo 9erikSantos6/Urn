@@ -10,9 +10,9 @@ export default [
   ...tseslint.configs.recommended,
   { 
     ignores: [
-      '*.js',
-      'node_modules',
-      'src/app/coverage/*',
+      '**/*.js',
+      '**/node_modules/*',
+      '**/coverage/*',
       'build'
     ]
   },
