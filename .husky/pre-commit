@@ -1,4 +1,6 @@
 yarn lint
 yarn format
 yarn test
-git add --intent-to-add
+
+# Add prepared files back to index
+git diff --cached --name-only | xargs git add
