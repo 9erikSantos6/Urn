@@ -1,7 +1,7 @@
-import { Candidate } from "./candidate";
+import { Candidate } from './candidate';
 
 export class President extends Candidate {
-  constructor (name: string, number: string) {
+  constructor(name: string, number: string) {
     super(name, number);
     this.number = this.validateNumber(number);
   }
