@@ -1,4 +1,4 @@
-import { it, describe, beforeEach, afterEach, expect} from 'vitest';
+import { it, describe, beforeEach, afterEach, expect } from 'vitest';
 import { Candidate } from '../app/candidates';
 import { Voter } from '../app/voters';
 import { Urn } from '../app/urn';
