@@ -9,7 +9,11 @@ export class Candidate {
 
   protected validateNumber(number: string): string {
     const numericString = number.replace(/\D/g, '');
-    if (numericString) {
+    if (
+      numericString &&
+      numericString.length <= 5 &&
+      Number(numericString) !== 0
+    ) {
       return numericString;
     }
     throw new Error('Invalid number!');

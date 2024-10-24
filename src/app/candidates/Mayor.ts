@@ -1,6 +1,6 @@
 import { Candidate } from './candidate';
 
-export class President extends Candidate {
+export class Mayor extends Candidate {
   constructor(name: string, number: string) {
     super(name, number);
     this.number = this.validateNumber(number);
@@ -15,6 +15,6 @@ export class President extends Candidate {
     ) {
       return numericString;
     }
-    throw new Error('Invalid number for President!');
+    throw new Error('Invalid number for Mayor!');
   }
 }
