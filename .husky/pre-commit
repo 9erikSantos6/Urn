@@ -1,3 +1,4 @@
 yarn lint
 yarn format
 yarn test
+git add --intent-to-add
