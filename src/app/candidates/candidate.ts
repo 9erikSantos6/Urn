@@ -1,13 +1,13 @@
 export class Candidate {
-  private name: string;
-  private number: string;
+  protected name: string;
+  protected number: string;
 
   constructor(name: string, number: string) {
     this.name = name;
     this.number = this.validateNumber(number);
   }
 
-  private validateNumber(number: string): string {
+  protected validateNumber(number: string): string {
     const numericString = number.replace(/\D/g, '');
     if (numericString) {
       return numericString;
