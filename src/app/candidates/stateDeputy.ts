@@ -1,6 +1,6 @@
 import { Candidate } from './candidate';
 
-export class EstateDeputy extends Candidate {
+export class StateDeputy extends Candidate {
   constructor(name: string, number: string) {
     super(name, number);
     this.number = this.validateNumber(number);
@@ -15,6 +15,6 @@ export class EstateDeputy extends Candidate {
     ) {
       return numericString;
     }
-    throw new Error('Invalid number for Estate Deputy!');
+    throw new Error('Invalid number for State Deputy!');
   }
 }
