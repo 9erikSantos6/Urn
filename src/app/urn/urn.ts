@@ -15,7 +15,7 @@ export class Urn {
   private confirmVotingStatusIn(votationSatus: VotationSatus): void {
     if (this.votingSatus === votationSatus) return;
     throw new Error(
-      `Operation denied, voting status is: ${this.votingSatus.toUpperCase()}`,
+      `Operation denied, voting status is: ${this.votingSatus.toUpperCase()}`
     );
   }
 
@@ -43,7 +43,7 @@ export class Urn {
 
   public searchByNumber(number: string): Candidate | undefined {
     return Array.from(this.candidates).find(
-      (candidate) => candidate.getNumber() == number,
+      (candidate) => candidate.getNumber() == number
     );
   }
 
@@ -70,7 +70,7 @@ export class Urn {
       this.CPFrecords.add(voterCPF);
       this.votes.validVotes.set(
         candidate,
-        (this.votes.validVotes.get(candidate) || 0) + 1,
+        (this.votes.validVotes.get(candidate) || 0) + 1
       );
       return;
     }

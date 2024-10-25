@@ -30,7 +30,7 @@ describe('Urn Class Tests', (): void => {
       const candidate: Candidate = new Candidate('Eneas', '55');
       urn.startVoting();
       expect((): void => urn.addCandidate(candidate)).toThrow(
-        `Operation denied, voting status is: OCCURRING`,
+        `Operation denied, voting status is: OCCURRING`
       );
     });
 
@@ -39,7 +39,7 @@ describe('Urn Class Tests', (): void => {
       const candidate2: Candidate = new Candidate('Eneas', '55');
       urn.addCandidate(candidate1);
       expect(() => urn.addCandidate(candidate2)).toThrow(
-        'Candidate already exists!',
+        'Candidate already exists!'
       );
     });
 
@@ -77,7 +77,7 @@ describe('Urn Class Tests', (): void => {
       urn.addCandidate(candidate2);
 
       expect(() => urn.delCandidate('27')).toThrow(
-        'This candidate does not exist!',
+        'This candidate does not exist!'
       );
 
       const candidatesList = urn.listCandidates();
@@ -116,7 +116,7 @@ describe('Urn Class Tests', (): void => {
       urn.addCandidate(candidate2);
 
       expect((): void => urn.registerVote(voter, '55')).toThrow(
-        'Operation denied, voting status is: SUSPENDED',
+        'Operation denied, voting status is: SUSPENDED'
       );
       const votationResults: VotesResults = urn.getVotationResults();
       expect(votationResults.validVotes.get(candidate1)).toBe(0);

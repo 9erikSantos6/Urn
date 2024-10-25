@@ -34,10 +34,10 @@ describe('Senator Class Tests', (): void => {
       const senator = new Senator('Ozzy', '666');
 
       expect(() => new Senator('Jose', '01766')).toThrow(
-        'Invalid number for Senator!',
+        'Invalid number for Senator!'
       );
       expect(() => senator.setNumber('A(lad*76')).toThrow(
-        'Invalid number for Senator!',
+        'Invalid number for Senator!'
       );
     });
 

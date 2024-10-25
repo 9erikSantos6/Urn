@@ -34,10 +34,10 @@ describe('President Class Tests', (): void => {
       const president = new President('Ozzy', '66');
 
       expect(() => new President('Jose', '01766')).toThrow(
-        'Invalid number for President!',
+        'Invalid number for President!'
       );
       expect(() => president.setNumber('A(lad*')).toThrow(
-        'Invalid number for President!',
+        'Invalid number for President!'
       );
     });
 

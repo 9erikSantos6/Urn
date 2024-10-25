@@ -34,10 +34,10 @@ describe('Mayor Class Tests', (): void => {
       const mayor = new Mayor('Ozzy', '66');
 
       expect(() => new Mayor('Jose', '01766')).toThrow(
-        'Invalid number for Mayor!',
+        'Invalid number for Mayor!'
       );
       expect(() => mayor.setNumber('A(lad*')).toThrow(
-        'Invalid number for Mayor!',
+        'Invalid number for Mayor!'
       );
     });
 

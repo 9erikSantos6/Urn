@@ -10,7 +10,7 @@ export class Voter {
   private toCpfFormat(value: string): string {
     return `${value.slice(0, 3)}.${value.slice(3, 6)}.${value.slice(
       6,
-      9,
+      9
     )}-${value.slice(9, 11)}`;
   }
 

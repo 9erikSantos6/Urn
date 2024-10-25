@@ -34,10 +34,10 @@ describe('Governor Class Tests', (): void => {
       const governor = new Governor('Ozzy', '66');
 
       expect(() => new Governor('Jose', '01766')).toThrow(
-        'Invalid number for Governor!',
+        'Invalid number for Governor!'
       );
       expect(() => governor.setNumber('A(lad*')).toThrow(
-        'Invalid number for Governor!',
+        'Invalid number for Governor!'
       );
     });
 

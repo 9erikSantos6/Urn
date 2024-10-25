@@ -34,10 +34,10 @@ describe('StateDeputy Class Tests', (): void => {
       const stateDeputy = new StateDeputy('Ozzy', '66666');
 
       expect(() => new StateDeputy('Jose', '0176466')).toThrow(
-        'Invalid number for State Deputy!',
+        'Invalid number for State Deputy!'
       );
       expect(() => stateDeputy.setNumber('A(lad*66')).toThrow(
-        'Invalid number for State Deputy!',
+        'Invalid number for State Deputy!'
       );
     });
 
