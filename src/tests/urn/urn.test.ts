@@ -21,13 +21,13 @@ describe('Urn Class Tests', (): void => {
 
   describe('Candidate-related tests', (): void => {
     it('Should add Candidate correctly', (): void => {
-      const candidate: Candidate = new Candidate('Eneas', '00');
+      const candidate: Candidate = new Candidate('Eneas', '55');
       urn.addCandidate(candidate);
       expect(urn.listCandidates()).toContain(candidate);
     });
 
     it('Should deny adding candidates after voting start', (): void => {
-      const candidate: Candidate = new Candidate('Eneas', '00');
+      const candidate: Candidate = new Candidate('Eneas', '55');
       urn.startVoting();
       expect((): void => urn.addCandidate(candidate)).toThrow(
         `Operation denied, voting status is: OCCURRING`,
@@ -44,7 +44,7 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should return a candidate list as an array', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '00');
+      const candidate1: Candidate = new Candidate('Eneas', '55');
       const candidate2: Candidate = new Candidate('THC', '22');
       urn.addCandidate(candidate1);
       urn.addCandidate(candidate2);
@@ -58,7 +58,7 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should delete a Candidate by number', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '00');
+      const candidate1: Candidate = new Candidate('Eneas', '55');
       const candidate2: Candidate = new Candidate('THC', '22');
       urn.addCandidate(candidate1);
       urn.addCandidate(candidate2);
@@ -71,7 +71,7 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should throw an error when trying to delete a non-existent Candidate', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '00');
+      const candidate1: Candidate = new Candidate('Eneas', '11');
       const candidate2: Candidate = new Candidate('THC', '22');
       urn.addCandidate(candidate1);
       urn.addCandidate(candidate2);

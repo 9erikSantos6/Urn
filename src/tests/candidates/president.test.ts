@@ -33,7 +33,7 @@ describe('President Class Tests', (): void => {
     it('Should throw an error when trying to set an invalid number', (): void => {
       const president = new President('Ozzy', '66');
 
-      expect(() => new President('Jose', '01232')).toThrow(
+      expect(() => new President('Jose', '01766')).toThrow(
         'Invalid number for President!',
       );
       expect(() => president.setNumber('A(lad*')).toThrow(
