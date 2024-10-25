@@ -4,17 +4,22 @@ import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default [
-  { files: ['**/*.{js,mjs,cjs,ts}'] },
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  { 
+  {
     ignores: [
       '**/*.js',
-      '**/node_modules/*',
-      '**/coverage/*',
-      'build'
-    ]
+      '**/node_modules/**',
+      '**/coverage/**',
+      'build/**',
+    ],
+    files: ['src/**/*.ts'],
+    languageOptions: {
+      globals: globals.browser,
+    },
+    rules: {
+      semi: ['error', 'always'],
+    },
   },
-  eslintConfigPrettier,
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintConfigPrettier
 ];
