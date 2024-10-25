@@ -1,3 +1,5 @@
-node_modules
-src/app/coverage/*
-*.md
+**/*.js
+**/node_modules/**
+**/coverage/**
+build/**
+**/*.md
