@@ -1,16 +1,24 @@
 import { Candidate } from '../candidates';
 import { Voter } from '../../app/voters';
-import { VotationSatus, VotesResults } from '../../shared/types/votation';
+import { VotationSatus } from '../../shared/types/votation';
+import { VotesResults } from '../../shared/interfaces/votation';
 
 export class Urn {
-  private votingSatus: VotationSatus = 'suspended';
-  private candidates: Set<Candidate> = new Set();
-  private CPFrecords: Set<string> = new Set();
-  private votes: VotesResults = {
-    validVotes: new Map(),
-    blankVotes: 0,
-    nullVotes: 0,
-  };
+  private votingSatus: VotationSatus;
+  private candidates: Set<Candidate>;
+  private CPFrecords: Set<string>;
+  private votes: VotesResults;
+
+  constructor () {
+    this.votingSatus = 'suspended';
+    this.candidates = new Set();
+    this.CPFrecords = new Set();
+    this.votes = {
+      validVotes: new Map(),
+      blankVotes: 0,
+      nullVotes: 0,
+    };
+  }
 
   private confirmVotingStatusIn(votationSatus: VotationSatus): void {
     if (this.votingSatus === votationSatus) return;
