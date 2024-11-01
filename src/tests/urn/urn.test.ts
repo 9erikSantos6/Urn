@@ -1,17 +1,13 @@
-import { it, describe, beforeEach, afterEach, expect } from 'vitest';
+import { it, describe, beforeEach, expect } from 'vitest';
 import { Candidate } from '../../app/candidates';
 import { Voter } from '../../app/voters';
 import { Urn } from '../../app/urn';
-import { VotesResults } from 'shared/types/votation';
+import { VotesResults } from 'shared/interfaces/votation';
 
 describe('Urn Class Tests', (): void => {
   let urn: Urn;
 
   beforeEach(() => {
-    urn = new Urn();
-  });
-
-  afterEach(() => {
     urn = new Urn();
   });
 
