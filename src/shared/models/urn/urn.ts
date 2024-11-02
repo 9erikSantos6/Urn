@@ -1,5 +1,5 @@
 import { Candidate } from '../candidates';
-import { Voter } from '../../app/voters';
+import { Voter } from '../voters';
 import { VotationSatus } from '../../types/votation';
 import { VotesResults } from '../../interfaces/votation';
 
