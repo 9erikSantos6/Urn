@@ -1,7 +1,7 @@
-export { Candidate } from './candidate';
-export { President } from './president';
-export { FederalDeputy } from './federalDeputy';
-export { Governor } from './governor';
-export { Mayor } from './mayor';
-export { Senator } from './senator';
-export { StateDeputy } from './stateDeputy';
+export { Candidate } from './Candidate';
+export { President } from './President';
+export { FederalDeputy } from './FederalDeputy';
+export { Governor } from './Governor';
+export { Mayor } from './Mayor';
+export { Senator } from './Senator';
+export { StateDeputy } from './StateDeputy';

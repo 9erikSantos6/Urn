@@ -1,10 +1,14 @@
+import { Party } from "../parties";
+
 export class Candidate {
   protected name: string;
   protected number: string;
+  protected party: Party;
 
-  constructor(name: string, number: string) {
+  constructor(name: string, number: string, party: Party) {
     this.name = name;
     this.number = this.validateNumber(number);
+    this.party = party;
   }
 
   protected validateNumber(number: string): string {
@@ -33,5 +37,13 @@ export class Candidate {
 
   public setNumber(number: string): void {
     this.number = this.validateNumber(number);
+  }
+
+  public getParty(): Party {
+      return this.party;
+  }
+
+  public setParty(party: Party) {
+      this.party = party;
   }
 }

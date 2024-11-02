@@ -1,8 +1,9 @@
-import { Candidate } from './candidate';
+import { Party } from '../parties';
+import { Candidate } from './Candidate';
 
 export class Senator extends Candidate {
-  constructor(name: string, number: string) {
-    super(name, number);
+  constructor(name: string, number: string, party: Party) {
+    super(name, number, party);
     this.number = this.validateNumber(number);
   }
 

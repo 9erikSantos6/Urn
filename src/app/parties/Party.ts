@@ -1,3 +1,5 @@
+import { captalize } from '../../shared/utils/string';
+
 export class Party {
   private name: string;
   private acronym: string;
@@ -8,7 +10,7 @@ export class Party {
   }
 
   public getName(): string {
-    return this.name;
+    return captalize(this.name);
   }
 
   public setName(name: string) {
@@ -16,7 +18,7 @@ export class Party {
   }
 
   public getAcronym(): string {
-    return this.acronym;
+    return this.acronym.toUpperCase();
   }
 
   public setAcronym(acronym: string) {
