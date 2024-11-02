@@ -1,7 +1,7 @@
 import { Candidate } from '../candidates';
 import { Voter } from '../../app/voters';
-import { VotationSatus } from '../../shared/types/votation';
-import { VotesResults } from '../../shared/interfaces/votation';
+import { VotationSatus } from '../../types/votation';
+import { VotesResults } from '../../interfaces/votation';
 
 export class Urn {
   private votingSatus: VotationSatus;
@@ -9,7 +9,7 @@ export class Urn {
   private CPFrecords: Set<string>;
   private votes: VotesResults;
 
-  constructor () {
+  constructor() {
     this.votingSatus = 'suspended';
     this.candidates = new Set();
     this.CPFrecords = new Set();

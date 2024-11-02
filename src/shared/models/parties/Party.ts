@@ -1,4 +1,4 @@
-import { captalize } from '../../shared/utils/string';
+import { captalize } from '../../utils/string';
 
 export class Party {
   private name: string;

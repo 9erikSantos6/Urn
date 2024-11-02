@@ -1,4 +1,4 @@
-import { Party } from "../parties";
+import { Party } from '../parties';
 
 export class Candidate {
   protected name: string;
@@ -40,10 +40,10 @@ export class Candidate {
   }
 
   public getParty(): Party {
-      return this.party;
+    return this.party;
   }
 
   public setParty(party: Party) {
-      this.party = party;
+    this.party = party;
   }
 }
