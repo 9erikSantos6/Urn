@@ -1,5 +1,5 @@
 import { it, describe, expect } from 'vitest';
-import { Voter } from '../../app/voters';
+import { Voter } from '../../shared/models/voters';
 
 describe('Voter Class Tests', (): void => {
   let voter: Voter;

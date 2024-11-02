@@ -1,6 +1,6 @@
 import { it, expect, describe } from 'vitest';
-import { Governor } from '../../app/candidates';
-import { Party } from '../../app/parties';
+import { Governor } from '../../shared/models/candidates';
+import { Party } from '../../shared/models/parties';
 
 describe('Governor Class Tests', (): void => {
   let governor: Governor;

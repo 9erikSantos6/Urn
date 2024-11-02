@@ -1,6 +1,6 @@
 import { it, expect, describe } from 'vitest';
-import { Candidate } from '../../app/candidates';
-import { Party } from '../../app/parties';
+import { Candidate } from '../../shared/models/candidates';
+import { Party } from '../../shared/models/parties';
 
 describe('Candidate Class Tests', (): void => {
   let candidate: Candidate;
@@ -57,6 +57,6 @@ describe('Candidate Class Tests', (): void => {
       expect(candidate.getParty()).toBeInstanceOf(Party);
       expect(candidate.getParty().getName()).toBe('Nulo');
       expect(candidate.getParty().getAcronym()).toBe('NULO');
-    }); 
+    });
   });
 });

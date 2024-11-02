@@ -1,11 +1,13 @@
 import { it, describe, beforeEach, expect } from 'vitest';
-import { Candidate } from '../../app/candidates';
-import { Voter } from '../../app/voters';
-import { Urn } from '../../app/urn';
-import { VotesResults } from 'shared/interfaces/votation';
+import { Candidate } from '../../shared/models/candidates';
+import { Voter } from '../../shared/models/voters';
+import { Urn } from '../../shared/models/urn';
+import { VotesResults } from '../../shared/interfaces/votation';
+import { Party } from '../../shared/models/parties';
 
 describe('Urn Class Tests', (): void => {
   let urn: Urn;
+  const party: Party = new Party('new party', 'np');
 
   beforeEach(() => {
     urn = new Urn();
@@ -17,13 +19,13 @@ describe('Urn Class Tests', (): void => {
 
   describe('Candidate-related tests', (): void => {
     it('Should add Candidate correctly', (): void => {
-      const candidate: Candidate = new Candidate('Eneas', '55');
+      const candidate: Candidate = new Candidate('Eneas', '55', party);
       urn.addCandidate(candidate);
       expect(urn.listCandidates()).toContain(candidate);
     });
 
     it('Should deny adding candidates after voting start', (): void => {
-      const candidate: Candidate = new Candidate('Eneas', '55');
+      const candidate: Candidate = new Candidate('Eneas', '55', party);
       urn.startVoting();
       expect((): void => urn.addCandidate(candidate)).toThrow(
         `Operation denied, voting status is: OCCURRING`
@@ -31,8 +33,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should deny adding duplicate candidates', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('Eneas', '55');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('Eneas', '55', party);
       urn.addCandidate(candidate1);
       expect(() => urn.addCandidate(candidate2)).toThrow(
         'Candidate already exists!'
@@ -40,8 +42,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should return a candidate list as an array', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       urn.addCandidate(candidate1);
       urn.addCandidate(candidate2);
 
@@ -54,8 +56,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should delete a Candidate by number', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       urn.addCandidate(candidate1);
       urn.addCandidate(candidate2);
 
@@ -67,8 +69,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should throw an error when trying to delete a non-existent Candidate', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '11');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '11', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       urn.addCandidate(candidate1);
       urn.addCandidate(candidate2);
 
@@ -84,8 +86,8 @@ describe('Urn Class Tests', (): void => {
 
   describe('Vote-related tests', () => {
     it('Should register a vote for a candidate', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       const voter = new Voter('Jhon', '35417396725');
 
       urn.addCandidate(candidate1);
@@ -104,8 +106,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should return an error when trying to vote without the vote not taking place.', () => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       const voter = new Voter('Jhon', '35417396725');
 
       urn.addCandidate(candidate1);
@@ -122,8 +124,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should deny duplicate votes by the same voter', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       const voter = new Voter('Jhon', '35417396725');
 
       urn.addCandidate(candidate1);
@@ -144,8 +146,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should register a blank vote', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       const voter = new Voter('Jhon', '35417396725');
 
       urn.addCandidate(candidate1);
@@ -164,8 +166,8 @@ describe('Urn Class Tests', (): void => {
     });
 
     it('Should register a null vote', (): void => {
-      const candidate1: Candidate = new Candidate('Eneas', '55');
-      const candidate2: Candidate = new Candidate('THC', '22');
+      const candidate1: Candidate = new Candidate('Eneas', '55', party);
+      const candidate2: Candidate = new Candidate('THC', '22', party);
       const voter = new Voter('Jhon', '35417396725');
 
       urn.addCandidate(candidate1);

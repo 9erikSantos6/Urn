@@ -1,6 +1,5 @@
 import { it, describe, expect } from 'vitest';
-import { Party } from '../../app/parties';
-
+import { Party } from '../../shared/models/parties';
 
 describe('Parties class tests', () => {
   it('Should instantiate Party correctly', () => {
@@ -16,8 +15,8 @@ describe('Parties class tests', () => {
     it('Should return the pary acronym', () => {
       const party: Party = new Party('Movimento Democrático Brasileiro', 'MDB');
       expect(party.getAcronym()).toBe('MDB');
-    })
-  })
+    });
+  });
 
   describe('Setter tests', () => {
     it('Should modify the party name correctly', () => {
@@ -28,8 +27,8 @@ describe('Parties class tests', () => {
 
     it('Should modify the party acronym corrctly', () => {
       const party: Party = new Party('Party Name', 'PN');
-      party.setAcronym('NP')
+      party.setAcronym('NP');
       expect(party.getAcronym()).toBe('NP');
     });
   });
-}); 
+});
