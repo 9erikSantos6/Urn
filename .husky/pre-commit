@@ -3,4 +3,5 @@ yarn format
 yarn test
 
 # Add prepared files back to index
-git diff --cached --name-only | xargs git add
+git diff --cached --name-only --diff-filter=d | xargs git add
+
