@@ -23,6 +23,11 @@ describe('FederalDeputy Class Tests', (): void => {
       federalDeputy = new FederalDeputy('Jhon', '3882', party);
       expect(federalDeputy.getNumber()).toBe('3882');
     });
+
+    it('Should return the party', () => {
+      federalDeputy = new FederalDeputy('Jhon', '0122', party);
+      expect(federalDeputy.getParty()).toBeInstanceOf(Party);
+    });
   });
 
   describe('Setter Tests', () => {
@@ -33,7 +38,7 @@ describe('FederalDeputy Class Tests', (): void => {
     });
 
     it('Should throw an error when trying to set an invalid number', (): void => {
-      const federalDeputy = new FederalDeputy('Ozzy', '6666', party);
+      federalDeputy = new FederalDeputy('Ozzy', '6666', party);
 
       expect(() => new FederalDeputy('Jose', '01232', party)).toThrow(
         'Invalid number for Federal Deputy!'
@@ -47,6 +52,17 @@ describe('FederalDeputy Class Tests', (): void => {
       federalDeputy = new FederalDeputy('Jose', '3882', party);
       federalDeputy.setNumber('A66l88');
       expect(federalDeputy.getNumber()).toBe('6688');
+    });
+
+    it('Should modify the candidate party correctly', () => {
+      federalDeputy = new FederalDeputy('Jose', '0132', party);
+
+      const newParty: Party = new Party('Nulo', 'NULO');
+      federalDeputy.setParty(newParty);
+
+      expect(federalDeputy.getParty()).toBeInstanceOf(Party);
+      expect(federalDeputy.getParty().getName()).toBe('Nulo');
+      expect(federalDeputy.getParty().getAcronym()).toBe('NULO');
     });
   });
 });

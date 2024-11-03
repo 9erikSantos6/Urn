@@ -23,6 +23,11 @@ describe('StateDeputy Class Tests', (): void => {
       stateDeputy = new StateDeputy('Jhon', '32323', party);
       expect(stateDeputy.getNumber()).toBe('32323');
     });
+
+    it('Should return the party', () => {
+      stateDeputy = new StateDeputy('Jhon', '32677', party);
+      expect(stateDeputy.getParty()).toBeInstanceOf(Party);
+    });
   });
 
   describe('Setter Tests', () => {
@@ -44,9 +49,20 @@ describe('StateDeputy Class Tests', (): void => {
     });
 
     it('Should modify the number correctly when valid', (): void => {
-      stateDeputy = new StateDeputy('Jose', '32323', party);
+      stateDeputy = new StateDeputy('Jose', '23233', party);
       stateDeputy.setNumber('A66l668');
       expect(stateDeputy.getNumber()).toBe('66668');
+    });
+
+    it('Should modify the candidate party correctly', () => {
+      stateDeputy = new StateDeputy('Jose', '42878', party);
+
+      const newParty: Party = new Party('Nulo', 'NULO');
+      stateDeputy.setParty(newParty);
+
+      expect(stateDeputy.getParty()).toBeInstanceOf(Party);
+      expect(stateDeputy.getParty().getName()).toBe('Nulo');
+      expect(stateDeputy.getParty().getAcronym()).toBe('NULO');
     });
   });
 });

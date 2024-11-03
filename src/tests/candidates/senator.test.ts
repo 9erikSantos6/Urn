@@ -23,6 +23,11 @@ describe('Senator Class Tests', (): void => {
       senator = new Senator('Jhon', '323', party);
       expect(senator.getNumber()).toBe('323');
     });
+
+    it('Should return the party', () => {
+      senator = new Senator('Jhon', '328', party);
+      expect(senator.getParty()).toBeInstanceOf(Party);
+    });
   });
 
   describe('Setter Tests', () => {
@@ -47,6 +52,17 @@ describe('Senator Class Tests', (): void => {
       senator = new Senator('Jose', '323', party);
       senator.setNumber('A66l6');
       expect(senator.getNumber()).toBe('666');
+    });
+
+    it('Should modify the candidate party correctly', () => {
+      senator = new Senator('Jose', '428', party);
+
+      const newParty: Party = new Party('Nulo', 'NULO');
+      senator.setParty(newParty);
+
+      expect(senator.getParty()).toBeInstanceOf(Party);
+      expect(senator.getParty().getName()).toBe('Nulo');
+      expect(senator.getParty().getAcronym()).toBe('NULO');
     });
   });
 });

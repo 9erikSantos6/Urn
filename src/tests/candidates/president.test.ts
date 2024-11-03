@@ -23,6 +23,11 @@ describe('President Class Tests', (): void => {
       president = new President('Jhon', '32', party);
       expect(president.getNumber()).toBe('32');
     });
+
+    it('Should return the party', () => {
+      president = new President('Jhon', '32', party);
+      expect(president.getParty()).toBeInstanceOf(Party);
+    });
   });
 
   describe('Setter Tests', () => {
@@ -47,6 +52,17 @@ describe('President Class Tests', (): void => {
       president = new President('Jose', '32', party);
       president.setNumber('A66l');
       expect(president.getNumber()).toBe('66');
+    });
+
+    it('Should modify the candidate party correctly', () => {
+      president = new President('Jose', '42', party);
+
+      const newParty: Party = new Party('Nulo', 'NULO');
+      president.setParty(newParty);
+
+      expect(president.getParty()).toBeInstanceOf(Party);
+      expect(president.getParty().getName()).toBe('Nulo');
+      expect(president.getParty().getAcronym()).toBe('NULO');
     });
   });
 });

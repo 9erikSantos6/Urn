@@ -23,6 +23,11 @@ describe('Mayor Class Tests', (): void => {
       mayor = new Mayor('Jhon', '32', party);
       expect(mayor.getNumber()).toBe('32');
     });
+
+    it('Should return the party', () => {
+      mayor = new Mayor('Jhon', '32', party);
+      expect(mayor.getParty()).toBeInstanceOf(Party);
+    });
   });
 
   describe('Setter Tests', () => {
@@ -47,6 +52,17 @@ describe('Mayor Class Tests', (): void => {
       mayor = new Mayor('Jose', '32', party);
       mayor.setNumber('A66l');
       expect(mayor.getNumber()).toBe('66');
+    });
+
+    it('Should modify the candidate party correctly', () => {
+      mayor = new Mayor('Jose', '32', party);
+
+      const newParty: Party = new Party('Nulo', 'NULO');
+      mayor.setParty(newParty);
+
+      expect(mayor.getParty()).toBeInstanceOf(Party);
+      expect(mayor.getParty().getName()).toBe('Nulo');
+      expect(mayor.getParty().getAcronym()).toBe('NULO');
     });
   });
 });

@@ -23,6 +23,11 @@ describe('Governor Class Tests', (): void => {
       governor = new Governor('Jhon', '32', party);
       expect(governor.getNumber()).toBe('32');
     });
+
+    it('Should return the party', () => {
+      governor = new Governor('Jhon', '32', party);
+      expect(governor.getParty()).toBeInstanceOf(Party);
+    });
   });
 
   describe('Setter Tests', () => {
@@ -47,6 +52,17 @@ describe('Governor Class Tests', (): void => {
       governor = new Governor('Jose', '32', party);
       governor.setNumber('A66l');
       expect(governor.getNumber()).toBe('66');
+    });
+
+    it('Should modify the candidate party correctly', () => {
+      governor = new Governor('Jose', '32', party);
+
+      const newParty: Party = new Party('Nulo', 'NULO');
+      governor.setParty(newParty);
+
+      expect(governor.getParty()).toBeInstanceOf(Party);
+      expect(governor.getParty().getName()).toBe('Nulo');
+      expect(governor.getParty().getAcronym()).toBe('NULO');
     });
   });
 });
