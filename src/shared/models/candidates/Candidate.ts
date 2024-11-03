@@ -1,6 +1,6 @@
 import { Party } from '../parties';
 
-export class Candidate {
+export abstract class Candidate {
   protected name: string;
   protected number: string;
   protected party: Party;
@@ -11,17 +11,7 @@ export class Candidate {
     this.party = party;
   }
 
-  protected validateNumber(number: string): string {
-    const numericString = number.replace(/\D/g, '');
-    if (
-      numericString &&
-      numericString.length <= 5 &&
-      Number(numericString) !== 0
-    ) {
-      return numericString;
-    }
-    throw new Error('Invalid number!');
-  }
+  protected abstract validateNumber(number: string): string;
 
   public getName(): string {
     return this.name;
